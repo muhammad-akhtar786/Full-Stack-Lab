@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students?sort=name"
+method: GET
+queryParams:
+  sort: name
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 400 (Bad Request)", function () { pm.response.to.have.status(400); });
+      pm.test("Details mention: sort can only be", function () {
+        pm.expect(pm.response.json().details.join(" | ")).to.include("sort can only be");
+      });
+    language: text/javascript
+order: 8000

@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students/{{newRoll}}"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "cgpa": 1.5
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200 (OK)", function () { pm.response.to.have.status(200); });
+      pm.test("CGPA changed, everything else kept", function () {
+        const s = pm.response.json();
+        pm.expect(s.cgpa).to.eql(1.5);
+        pm.expect(s.name).to.eql("Zara Khan");
+        pm.expect(s.status).to.eql("Academic Warning");
+      });
+    language: text/javascript
+order: 16000

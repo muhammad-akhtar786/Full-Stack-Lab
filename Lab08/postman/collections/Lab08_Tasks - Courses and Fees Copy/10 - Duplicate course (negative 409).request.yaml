@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "code": "CS101",
+      "title": "Duplicate course",
+      "department": "Computer Science",
+      "credits": 3,
+      "instructor": "Dr. Duplicate",
+      "capacity": 20
+    }
+order: 10000

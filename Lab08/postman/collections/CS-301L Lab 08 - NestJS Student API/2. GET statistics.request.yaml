@@ -1,0 +1,15 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students/stats"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200 (OK)", function () { pm.response.to.have.status(200); });
+      pm.test("Statistics are correct", function () {
+        const s = pm.response.json();
+        pm.expect(s.totalStudents).to.eql(6);
+        pm.expect(s.averageCgpa).to.eql(3.02);
+        pm.expect(s.highest.name).to.eql("Sara Ahmed");
+      });
+    language: text/javascript
+order: 2000

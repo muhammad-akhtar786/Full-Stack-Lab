@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students/BSCS-777"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 404 (Not Found)", function () { pm.response.to.have.status(404); });
+      pm.test("Nest NotFoundException body", function () {
+        const b = pm.response.json();
+        pm.expect(b.statusCode).to.eql(404);
+        pm.expect(b.message).to.include("BSCS-777");
+      });
+    language: text/javascript
+order: 5000

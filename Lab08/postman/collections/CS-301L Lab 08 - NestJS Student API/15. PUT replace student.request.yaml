@@ -1,0 +1,26 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students/{{newRoll}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "Zara Khan",
+      "email": "zara@example.com",
+      "department": "Data Science",
+      "semester": 4,
+      "cgpa": 3.25
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200 (OK)", function () { pm.response.to.have.status(200); });
+      pm.test("Name and semester were replaced", function () {
+        const s = pm.response.json();
+        pm.expect(s.name).to.eql("Zara Khan");
+        pm.expect(s.semester).to.eql(4);
+      });
+    language: text/javascript
+order: 15000

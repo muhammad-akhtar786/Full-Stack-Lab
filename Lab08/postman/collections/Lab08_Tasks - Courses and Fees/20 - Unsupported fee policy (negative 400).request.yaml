@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{baseUrl}}/api/fees/calculate?credits=3&cgpa=3.5&policy=waived"
+method: GET
+queryParams:
+  credits: "3"
+  cgpa: "3.5"
+  policy: waived
+order: 20000

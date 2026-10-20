@@ -1,0 +1,17 @@
+# Use this workspace to collaborate
+workspace:
+  id: e67d9d72-c944-499e-8423-6412f1a0065a
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/CS-301L Lab 08 - NestJS Student API: 3dd42894-03fc-49a5-b8d8-e640cac30887
+    ../postman/collections/Lab08_Tasks - Courses and Fees: bbf36885-e226-4002-aed7-ceba8ae92224
+    ../postman/collections/Lab08_Tasks - Courses and Fees Copy: 0b80ee9c-c6b2-4c60-ab06-f836fcfedd09
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

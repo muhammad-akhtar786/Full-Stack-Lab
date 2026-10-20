@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "code": "AI403",
+      "title": "Unknown Property",
+      "department": "Computer Science",
+      "credits": 3,
+      "instructor": "Dr. Zara",
+      "capacity": 20,
+      "isAdmin": true
+    }
+order: 12000

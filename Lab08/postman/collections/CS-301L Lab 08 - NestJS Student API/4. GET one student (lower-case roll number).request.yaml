@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students/bscs-023"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200 (OK)", function () { pm.response.to.have.status(200); });
+      pm.test("The param DTO upper-cased the roll number", function () {
+        const s = pm.response.json();
+        pm.expect(s.name).to.eql("Sara Ahmed");
+        pm.expect(s.rollNumber).to.eql("BSCS-023");
+      });
+    language: text/javascript
+order: 4000

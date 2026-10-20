@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses/CS101"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Incomplete replacement"
+    }
+order: 14000
