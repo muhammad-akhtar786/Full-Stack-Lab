@@ -1,0 +1,1 @@
+Place your real Postman/Thunder Client screenshots here (task1.png, task2-a.png, etc.).
