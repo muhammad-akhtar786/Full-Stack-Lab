@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Full Stack Web Development - CS-301L</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ===================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">CS-301L</a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNav"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lab04">Lab 04</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lab05">Lab 05</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#lab06">Lab 06</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+  <header id="home" class="hero">
+    <div class="container">
+      <h1>Full Stack Web Development</h1>
+      <p>Course Code: CS-301L &mdash; Lab Portfolio</p>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       LAB 04
+  ===================================================== -->
+  <section id="lab04" class="py-5 bg-light">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Lab 04 - JavaScript Advanced Concepts</h2>
+        <p>Arrays, Loops, Functions and ES6 Features</p>
+      </div>
+
+      <!-- 1. JavaScript Arrays -->
+      <div class="profile-card mb-4">
+        <h3>1. JavaScript Arrays</h3>
+        <p>Arrays are used to store multiple values in a single variable.</p>
+        <p id="arrayOutput"></p>
+      </div>
+
+      <!-- 2. Array Methods -->
+      <div class="profile-card mb-4">
+        <h3>2. Array Methods</h3>
+        <p>JavaScript provides built-in methods for manipulating arrays.</p>
+        <p id="arrayMethodsOutput"></p>
+      </div>
+
+      <!-- 3. for Loop -->
+      <div class="profile-card mb-4">
+        <h3>3. for Loop</h3>
+        <p>The traditional for loop can be used to iterate through an array.</p>
+        <p id="forLoopOutput"></p>
+      </div>
+
+      <!-- 4. for...of Loop -->
+      <div class="profile-card mb-4">
+        <h3>4. for...of Loop</h3>
+        <p>The for...of loop directly accesses array values.</p>
+        <p id="forOfOutput"></p>
+      </div>
+
+      <!-- 5. for...in Loop -->
+      <div class="profile-card mb-4">
+        <h3>5. for...in Loop</h3>
+        <p>The for...in loop can be used to access object properties.</p>
+        <p id="forInOutput"></p>
+      </div>
+
+      <!-- 6. forEach() -->
+      <div class="profile-card mb-4">
+        <h3>6. forEach()</h3>
+        <p>forEach() executes a function for every array element.</p>
+        <p id="forEachOutput"></p>
+      </div>
+
+      <!-- 7. JavaScript Functions -->
+      <div class="profile-card mb-4">
+        <h3>7. JavaScript Functions</h3>
+        <p>Functions allow us to create reusable blocks of code.</p>
+        <p id="functionOutput"></p>
+      </div>
+
+      <!-- 8. Arrow Functions -->
+      <div class="profile-card mb-4">
+        <h3>8. Arrow Functions</h3>
+        <p>Arrow functions provide a shorter syntax for writing functions.</p>
+        <p id="arrowOutput"></p>
+      </div>
+
+      <!-- 9. ES6 Classes -->
+      <div class="profile-card mb-4">
+        <h3>9. ES6 Classes</h3>
+        <p>Classes provide a blueprint for creating objects.</p>
+        <p id="classOutput"></p>
+      </div>
+
+      <!-- 10. Object Destructuring -->
+      <div class="profile-card mb-4">
+        <h3>10. Object Destructuring</h3>
+        <p>Destructuring allows us to extract values from objects.</p>
+        <p id="destructuringOutput"></p>
+      </div>
+
+      <!-- 11. Ternary Operator -->
+      <div class="profile-card mb-4">
+        <h3>11. Ternary Operator</h3>
+        <p>The ternary operator provides a short way to write simple conditions.</p>
+        <p id="ternaryOutput"></p>
+      </div>
+
+      <!-- 12. Final Dashboard -->
+      <div class="profile-card">
+        <h3>12. Student Performance Dashboard</h3>
+        <p>This example combines the concepts learned in Lab 04.</p>
+        <div id="studentDashboardOutput"></div>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- =====================================================
+         LAB 05
+    ===================================================== -->
+    <section id="lab05" class="py-5">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Lab 05 - Asynchronous JavaScript</h2>
+          <p>ES6 Features, Modules, Callbacks, Promises
+             and Async/Await</p>
+        </div>
+
+        <!-- 1. Spread Operator -->
+        <div class="profile-card mb-4">
+          <h3>1. Spread Operator</h3>
+          <p>The spread operator (...) expands arrays and
+             objects into individual elements.</p>
+          <p id="spreadOutput"></p>
+        </div>
+
+        <!-- 2. Rest Parameters -->
+        <div class="profile-card mb-4">
+          <h3>2. Rest Parameters</h3>
+          <p>Rest parameters collect multiple arguments
+             into a single array.</p>
+          <p id="restOutput"></p>
+        </div>
+
+        <!-- 3. More ES6 Features -->
+        <div class="profile-card mb-4">
+          <h3>3. More ES6 Features</h3>
+          <p>Template literals, default parameters and
+             shorthand properties.</p>
+          <p id="es6Output"></p>
+        </div>
+
+        <!-- 4. Modules -->
+        <div class="profile-card mb-4">
+          <h3>4. JavaScript Modules</h3>
+          <p>Modules let us split code into reusable files.</p>
+          <p id="moduleOutput"></p>
+        </div>
+
+        <!-- 5. Callbacks -->
+        <div class="profile-card mb-4">
+          <h3>5. Function Callbacks</h3>
+          <p>A callback is a function passed to another
+             function to be executed later.</p>
+          <p id="callbackOutput"></p>
+        </div>
+
+        <!-- 6. Nested Callbacks -->
+        <div class="profile-card mb-4">
+          <h3>6. Nested Callbacks</h3>
+          <p>Callbacks inside callbacks are used to run
+             asynchronous steps in order.</p>
+          <p id="nestedCallbackOutput"></p>
+        </div>
+
+        <!-- 7. Promises -->
+        <div class="profile-card mb-4">
+          <h3>7. Promises</h3>
+          <p>A promise represents a value that will be
+             available in the future.</p>
+          <p id="promiseOutput"></p>
+        </div>
+
+        <!-- 8. Async/Await -->
+        <div class="profile-card mb-4">
+          <h3>8. Async/Await</h3>
+          <p>async/await makes asynchronous code look like
+             normal step-by-step code.</p>
+          <p id="asyncOutput"></p>
+        </div>
+
+        <!-- 9. Final Portal -->
+        <div class="profile-card">
+          <h3>9. Student Result Portal</h3>
+          <p>This example combines the concepts learned
+             in Lab 05.</p>
+          <button id="loadPortalBtn"
+                  class="btn btn-primary mb-3">
+            Load Student Results
+          </button>
+          <div id="studentPortalOutput"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         LAB 06
+    ===================================================== -->
+    <section id="lab06" class="py-5 bg-light">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Lab 06, DOM, Events and Forms</h2>
+          <p>DOM Manipulation, Event Handling, Form Validation
+             and Dynamic Updates</p>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2 mb-4"><a class="btn btn-outline-primary" href="#task1">Task 1</a><a class="btn btn-outline-primary" href="#task2">Task 2</a><a class="btn btn-outline-primary" href="#task3">Task 3</a><a class="btn btn-outline-primary" href="#task4">Task 4</a></div>
+<div id="task1" class="profile-card mb-4">
+<h3>Task 1, Interactive Course Planner</h3>
+<label for="plannerInput">Course Name</label>
+<input id="plannerInput" class="form-control mb-3" placeholder="Type a course name...">
+<button id="plannerAdd" class="btn btn-primary">Add Course</button>
+<button id="plannerClear" class="btn btn-danger">Clear All</button>
+<button id="plannerLongest" class="btn btn-warning">Highlight Longest</button>
+<div id="plannerMessage" class="my-3" aria-live="polite">
+</div>
+<ul id="plannerList">
+</ul>
+<p id="plannerCount" aria-live="polite">
+</p>
+</div>
+<div id="task2" class="profile-card mb-4">
+<h3>Task 2, Live Student ID Card Generator</h3>
+<div class="row">
+<div class="col-md-6">
+<form id="idForm">
+<div class="mb-3">
+<label for="idName" class="form-label">Full Name</label>
+<input id="idName" name="idName" class="form-control" type="text" maxlength="30">
+</div>
+<p id="idCount">
+</p>
+<div class="mb-3">
+<label for="idRoll" class="form-label">Roll Number</label>
+<input id="idRoll" name="idRoll" class="form-control" type="text">
+</div>
+<div class="mb-3">
+<label for="idDept" class="form-label">Department</label>
+<select id="idDept" name="idDept" class="form-control" >
+<option value="">-- Select --</option>
+<option>Computer Science</option>
+<option>Software Engineering</option>
+<option>Data Science</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="idSemester" class="form-label">Semester</label>
+<input id="idSemester" name="idSemester" class="form-control" type="number" min="1" max="8">
+</div>
+<div class="mb-3">
+<label for="idColor" class="form-label">Card Color</label>
+<select id="idColor" name="idColor" class="form-control" >
+<option value="#dbeafe">Blue</option>
+<option value="#dcfce7">Green</option>
+<option value="#fef3c7">Yellow</option>
+</select>
+</div>
+<label>
+<input id="idShowCgpa" type="checkbox"> Show CGPA Badge</label>
+<div id="idCgpaBox" hidden>
+<div class="mb-3">
+<label for="idCgpa" class="form-label">CGPA</label>
+<input id="idCgpa" name="idCgpa" class="form-control" type="number" min="0" max="4" step="0.01">
+</div>
+</div>
+<button type="reset" class="btn btn-secondary mt-3">Reset</button>
+</form>
+</div>
+<div class="col-md-6">
+<div id="idCard" class="border rounded p-4">
+<h4 id="idCardName">
+</h4>
+<p id="idCardDetails">
+</p>
+<span id="idBadge" class="badge bg-primary" hidden>
+</span>
+</div>
+<label for="idSummary" class="mt-3">Download Summary</label>
+<textarea id="idSummary" class="form-control" rows="7" readonly>
+</textarea>
+</div>
+</div>
+</div>
+<div id="task3" class="profile-card mb-4">
+<h3>Task 3, Course Registration Form</h3>
+<form id="courseForm">
+<div class="mb-3">
+<label for="crName" class="form-label">Full Name</label>
+<input id="crName" name="crName" class="form-control" type="text" required minlength="3">
+<div id="crNameError" class="invalid-feedback" aria-live="polite"></div>
+</div>
+<div class="mb-3">
+<label for="crEmail" class="form-label">Email</label>
+<input id="crEmail" name="crEmail" class="form-control" type="email" required>
+<div id="crEmailError" class="invalid-feedback" aria-live="polite"></div>
+</div>
+<div class="mb-3">
+<label for="crPhone" class="form-label">Phone</label>
+<input id="crPhone" name="crPhone" class="form-control" type="text" required pattern="03[0-9]{9}" title="Format: 03001234567">
+</div>
+<p id="crPhoneState" aria-live="polite">
+</p>
+<div class="mb-3">
+<label for="crDob" class="form-label">Date of Birth</label>
+<input id="crDob" name="crDob" class="form-control" type="date" required>
+<div id="crDobError" class="invalid-feedback" aria-live="polite"></div>
+</div>
+<div class="mb-3">
+<label for="crCourse" class="form-label">Course</label>
+<select id="crCourse" name="crCourse" class="form-control" required>
+<option value="">-- Select --</option>
+<option>Web Development</option>
+<option>Database Systems</option>
+<option>Artificial Intelligence</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="crPassword" class="form-label">Password</label>
+<input id="crPassword" name="crPassword" class="form-control" type="password" required minlength="8">
+<div id="crPasswordError" class="invalid-feedback" aria-live="polite"></div>
+</div>
+<div class="mb-3">
+<label for="crConfirm" class="form-label">Confirm Password</label>
+<input id="crConfirm" name="crConfirm" class="form-control" type="password" required>
+<div id="crConfirmError" class="invalid-feedback" aria-live="polite"></div>
+</div>
+<div class="mb-3">
+<label>
+<input type="checkbox" id="crShow"> Show / Hide Password</label>
+</div>
+<div class="mb-3">
+<label>
+<input type="checkbox" id="crTerms" name="crTerms" required> I accept the terms and conditions</label>
+</div>
+<button class="btn btn-primary" type="submit" id="crSubmit">Register</button>
+</form>
+<div id="courseSummary" class="mt-3" aria-live="polite">
+</div>
+</div>
+<!-- Task 4, Student Management Dashboard -->
+        <div id="task4" class="profile-card">
+          <h3>Task 4, Student Management Dashboard</h3>
+          <p>Add, search, filter, sort, edit and delete students.</p>
+
+          <form id="regForm" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="regName" class="form-label">Full Name</label>
+                <input type="text" id="regName" class="form-control"
+                       required minlength="3">
+                <div id="regNameError" class="invalid-feedback"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="regRoll" class="form-label">Roll Number</label>
+                <input type="text" id="regRoll" class="form-control"
+                       required pattern="BSCS-[0-9]{3}"
+                       title="Format: BSCS-001" placeholder="BSCS-001">
+                <div id="regRollError" class="invalid-feedback"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="regEmail" class="form-label">Email</label>
+                <input type="email" id="regEmail" class="form-control"
+                       required>
+                <div id="regEmailError" class="invalid-feedback"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="regDept" class="form-label">Department</label>
+                <select id="regDept" class="form-select" required>
+                  <option value="">-- Select --</option>
+                  <option>Computer Science</option>
+                  <option>Software Engineering</option>
+                  <option>Data Science</option>
+                </select>
+                <div id="regDeptError" class="invalid-feedback"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="regSemester" class="form-label">
+                  Semester (1 - 8)</label>
+                <input type="number" id="regSemester"
+                       class="form-control" required min="1" max="8" step="1">
+                <div id="regSemesterError"
+                     class="invalid-feedback"></div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="regCgpa" class="form-label">
+                  CGPA (0.00 - 4.00)</label>
+                <input type="number" id="regCgpa" class="form-control"
+                       required min="0" max="4" step="0.01">
+                <div id="regCgpaError" class="invalid-feedback"></div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Register Student</button>
+            <button type="reset" class="btn btn-outline-secondary">
+              Reset</button>
+          </form>
+
+          <div id="regMessage" class="mt-3"></div>
+
+          <div id="regSummary" class="row text-center my-4"></div>
+
+          <div class="mb-3">
+            <input type="text" id="regSearch" class="form-control"
+                   placeholder="Search by name or roll number...">
+          </div>
+
+          <div class="mb-3"><label for="regFilter">Department Filter</label><select id="regFilter" class="form-select"><option value="">All Departments</option><option>Computer Science</option><option>Software Engineering</option><option>Data Science</option></select></div>
+<button id="regSort" class="btn btn-secondary mb-3">Sort by CGPA: Highest First</button>
+<form id="editForm" class="border rounded p-3 mb-3" hidden novalidate><label id="editLabel" for="editCgpa">New CGPA</label><input id="editCgpa" type="number" min="0" max="4" step="0.01" required class="form-control"><div id="editError" class="text-danger"></div><button class="btn btn-primary mt-2" type="submit">Save CGPA</button><button id="editCancel" class="btn btn-secondary mt-2" type="button">Cancel</button></form><div id="regList"></div>
+        </div>
+
+<div class="section-heading mt-5"><h3>Manual Examples</h3></div>
+<!-- 1. DOM Selection -->
+        <div class="profile-card mb-4">
+          <h3>1. DOM Selection</h3>
+          <p>JavaScript can find elements on the page and
+             work with them.</p>
+          <ul id="lab06CourseList">
+            <li class="lab06-course">Web Development</li>
+            <li class="lab06-course">Database Systems</li>
+            <li class="lab06-course lab06-important">Artificial Intelligence</li>
+            <li class="lab06-course">Computer Networks</li>
+          </ul>
+          <p id="selectionOutput"></p>
+        </div>
+
+        <!-- 2. Changing Content, Styles, Attributes -->
+        <div class="profile-card mb-4">
+          <h3>2. Changing Content, Styles and Attributes</h3>
+          <p>Elements can be changed after the page has loaded.</p>
+          <p id="manipulateText">This is the original text.</p>
+          <p><a id="manipulateLink" href="#lab06">Visit Website</a></p>
+          <div class="mb-3">
+            <button id="changeTextBtn"
+                    class="btn btn-primary btn-sm">Change Text</button>
+            <button id="toggleStyleBtn"
+                    class="btn btn-warning btn-sm">Toggle Highlight</button>
+            <button id="changeColorBtn"
+                    class="btn btn-info btn-sm">Change Color</button>
+            <button id="changeLinkBtn"
+                    class="btn btn-success btn-sm">Change Link</button>
+          </div>
+          <p id="manipulateOutput"></p>
+        </div>
+
+        <!-- 3. Creating and Removing Elements -->
+        <div class="profile-card mb-4">
+          <h3>3. Creating and Removing Elements</h3>
+          <p>New elements can be created and added to the page.</p>
+          <div class="mb-3">
+            <button id="addItemBtn"
+                    class="btn btn-primary btn-sm">Add Course</button>
+            <button id="removeItemBtn"
+                    class="btn btn-danger btn-sm">Remove Last</button>
+          </div>
+          <ul id="dynamicList"></ul>
+          <p id="dynamicOutput"></p>
+        </div>
+
+        <!-- 4. Click Events -->
+        <div class="profile-card mb-4">
+          <h3>4. Click Events</h3>
+          <p>A click event runs code when the user clicks
+             an element.</p>
+          <button id="clickBtn" class="btn btn-primary">Click Me</button>
+          <button id="resetClickBtn"
+                  class="btn btn-outline-secondary">Reset</button>
+          <p id="clickOutput" class="mt-3"></p>
+        </div>
+
+        <!-- 5. Input and Change Events -->
+        <div class="profile-card mb-4">
+          <h3>5. Input and Change Events</h3>
+          <p>The input event fires every time the value of a
+             field changes.</p>
+          <div class="mb-3">
+            <label for="liveName" class="form-label">Your Name</label>
+            <input type="text" id="liveName" class="form-control"
+                   maxlength="30" placeholder="Type your name">
+          </div>
+          <div class="mb-3">
+            <label for="liveCourse" class="form-label">
+              Favourite Course</label>
+            <select id="liveCourse" class="form-select">
+              <option value="">-- Select a course --</option>
+              <option>Web Development</option>
+              <option>Database Systems</option>
+              <option>Artificial Intelligence</option>
+            </select>
+          </div>
+          <p id="inputOutput"></p>
+        </div>
+
+        <!-- 6. Form Submit Event -->
+        <div class="profile-card mb-4">
+          <h3>6. Form Submit Event</h3>
+          <p>The submit event runs when a form is submitted.</p>
+          <form id="feedbackForm">
+            <div class="mb-3">
+              <label for="fbName" class="form-label">Name</label>
+              <input type="text" id="fbName" name="name"
+                     class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="fbMessage" class="form-label">Message</label>
+              <textarea id="fbMessage" name="message" rows="3"
+                        class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit Feedback</button>
+          </form>
+          <div id="feedbackOutput" class="mt-3"></div>
+        </div>
+
+        <!-- 7. Basic JavaScript Validation -->
+        <div class="profile-card mb-4">
+          <h3>7. Basic JavaScript Validation</h3>
+          <p>The form below uses <code>novalidate</code>, so all
+             checks are written in JavaScript.</p>
+          <form id="basicForm" novalidate>
+            <div class="mb-3">
+              <label for="basicName" class="form-label">Full Name</label>
+              <input type="text" id="basicName" class="form-control">
+              <div id="basicNameError" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="basicEmail" class="form-label">Email</label>
+              <input type="text" id="basicEmail" class="form-control">
+              <div id="basicEmailError" class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="basicAge" class="form-label">Age</label>
+              <input type="text" id="basicAge" class="form-control">
+              <div id="basicAgeError" class="invalid-feedback"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Validate</button>
+          </form>
+          <div id="basicOutput" class="mt-3"></div>
+        </div>
+
+        <!-- 8. HTML5 Validation -->
+        <div class="profile-card mb-4">
+          <h3>8. HTML5 Form Validation</h3>
+          <p>The browser validates these fields using HTML
+             attributes such as required, minlength, pattern,
+             min and max.</p>
+          <form id="html5Form">
+            <div class="mb-3">
+              <label for="h5Username" class="form-label">Username</label>
+              <input type="text" id="h5Username" class="form-control"
+                     required minlength="4" maxlength="12"
+                     pattern="[A-Za-z0-9_]+"
+                     title="Letters, numbers and underscore only">
+              <div id="h5UsernameState" class="form-text"></div>
+            </div>
+            <div class="mb-3">
+              <label for="h5Email" class="form-label">Email</label>
+              <input type="email" id="h5Email" class="form-control"
+                     required>
+            </div>
+            <div class="mb-3">
+              <label for="h5Age" class="form-label">Age (18 - 60)</label>
+              <input type="number" id="h5Age" class="form-control"
+                     required min="18" max="60">
+            </div>
+            <div class="mb-3">
+              <label for="h5Password" class="form-label">
+                Password (minimum 8 characters)</label>
+              <input type="password" id="h5Password"
+                     class="form-control" required minlength="8">
+            </div>
+            <div class="mb-3">
+              <label for="h5Confirm" class="form-label">
+                Confirm Password</label>
+              <input type="password" id="h5Confirm"
+                     class="form-control" required>
+            </div>
+            <div class="form-check mb-3">
+              <input type="checkbox" id="h5Terms"
+                     class="form-check-input" required>
+              <label for="h5Terms" class="form-check-label">
+                I accept the terms and conditions</label>
+            </div>
+            <button type="submit" id="h5SubmitBtn"
+                    class="btn btn-primary">Register</button>
+          </form>
+          <div id="html5Output" class="mt-3"></div>
+        </div>
+
+        
+      </div>
+    </section>
+
+  <footer>
+    <div class="container">
+      CS-301L &mdash; Full Stack Web Development
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- Lab 01 - 04 JavaScript (normal script) -->
+  <script src="script.js"></script>
+
+  <!-- Lab 05 JavaScript (ES module) -->
+  <script type="module" src="lab05.js"></script>
+
+  <!-- Lab 06 JavaScript (normal script) -->
+  <script src="lab06.js"></script>
+</body>
+</html>

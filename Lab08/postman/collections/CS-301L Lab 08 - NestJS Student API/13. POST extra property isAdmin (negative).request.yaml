@@ -1,0 +1,27 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "  Zara Ali ",
+      "rollNumber": "BSCS-098",
+      "email": "Zara@Example.com",
+      "department": "Data Science",
+      "semester": 3,
+      "cgpa": 3.25,
+      "isAdmin": true
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 400 (Bad Request)", function () { pm.response.to.have.status(400); });
+      pm.test("Error is Validation failed", function () { pm.expect(pm.response.json().error).to.eql("Validation failed"); });
+      pm.test("Details mention: should not exist", function () {
+        pm.expect(pm.response.json().details.join(" | ")).to.include("should not exist");
+      });
+    language: text/javascript
+order: 13000

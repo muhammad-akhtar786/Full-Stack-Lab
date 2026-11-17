@@ -1,0 +1,55 @@
+$kind: collection
+description: Courses CRUD, DTO validation, statistics, and standard/merit fee endpoints.
+variables:
+  baseUrl: http://localhost:3000
+scripts:
+  - type: http:afterResponse
+    code: |-
+      const expectedStatuses = {
+        '01 - List courses': 200,
+        '02 - Course statistics': 200,
+        '03 - Filter and sort courses': 200,
+        '04 - Get course (lowercase code)': 200,
+        '05 - Get CS-301L': 200,
+        '06 - Unknown course (negative 404)': 404,
+        '07 - Invalid course code (negative 400)': 400,
+        '08 - Invalid query number (negative 400)': 400,
+        '09 - Create course': 201,
+        '10 - Duplicate course (negative 409)': 409,
+        '11 - Invalid credits (negative 400)': 400,
+        '12 - Unknown body property (negative 400)': 400,
+        '13 - Replace course with PUT': 200,
+        '14 - Incomplete PUT (negative 400)': 400,
+        '15 - Update course with PATCH': 200,
+        '16 - Fee policy information': 200,
+        '17 - Standard fee calculation': 200,
+        '18 - Merit fee calculation': 200,
+        '19 - Invalid fee credits (negative 400)': 400,
+        '20 - Unsupported fee policy (negative 400)': 400,
+        '21 - Delete course': 204,
+        '22 - Get deleted course (negative 404)': 404
+      };
+      pm.test('Returns the expected status for this request', function () {
+        pm.response.to.have.status(expectedStatuses[pm.info.requestName]);
+      });
+      if (pm.info.requestName === '02 - Course statistics') {
+        pm.test('Reports six courses, 17 credits, and not overloaded', function () {
+          pm.expect(pm.response.json()).to.include({ totalCourses: 6, totalCredits: 17, overloaded: false });
+        });
+      }
+      if (pm.info.requestName === '16 - Fee policy information') {
+        pm.test('Reports the 5000 PKR credit rate', function () {
+          pm.expect(pm.response.json().feeRatePerCredit).to.eql(5000);
+        });
+      }
+      if (pm.info.requestName === '17 - Standard fee calculation') {
+        pm.test('Calculates standard fee as 60000 PKR', function () {
+          pm.expect(pm.response.json().total).to.eql(60000);
+        });
+      }
+      if (pm.info.requestName === '18 - Merit fee calculation') {
+        pm.test('Calculates merit fee as 30000 PKR', function () {
+          pm.expect(pm.response.json().total).to.eql(30000);
+        });
+      }
+    language: text/javascript

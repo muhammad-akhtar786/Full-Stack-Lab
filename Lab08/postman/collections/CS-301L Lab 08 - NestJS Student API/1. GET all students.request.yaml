@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students"
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200 (OK)", function () { pm.response.to.have.status(200); });
+      pm.test("Six students, each with a status", function () {
+        const d = pm.response.json();
+        pm.expect(d.length).to.eql(6);
+        d.forEach(function (s) { pm.expect(s).to.have.property("status"); });
+      });
+    language: text/javascript
+order: 1000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/fees/info"
+method: GET
+order: 16000

@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses/AI401"
+method: GET
+order: 22000

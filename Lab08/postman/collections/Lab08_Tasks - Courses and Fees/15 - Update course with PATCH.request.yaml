@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses/CS101"
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "capacity": 50
+    }
+order: 15000

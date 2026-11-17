@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{baseUrl}}/api/students?minCgpa=abc"
+method: GET
+queryParams:
+  minCgpa: abc
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 400 (Bad Request)", function () { pm.response.to.have.status(400); });
+      pm.test("Details mention: minCgpa must be a number", function () {
+        pm.expect(pm.response.json().details.join(" | ")).to.include("minCgpa must be a number");
+      });
+    language: text/javascript
+order: 7000

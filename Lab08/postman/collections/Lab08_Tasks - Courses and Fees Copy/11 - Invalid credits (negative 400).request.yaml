@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "code": "AI402",
+      "title": "Invalid Credits",
+      "department": "Computer Science",
+      "credits": 0,
+      "instructor": "Dr. Zara",
+      "capacity": 20
+    }
+order: 11000

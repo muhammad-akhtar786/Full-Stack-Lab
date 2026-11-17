@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "8b795a38-89b9-49e5-8f5b-3c1d8d0508c2",
+    "name": "Lab08_Tasks - Courses and Fees",
+    "description": "Courses CRUD, DTO validation, statistics, and standard/merit fee endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" }
+  ],
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "const expectedStatuses = {",
+          "  '01 - List courses': 200,",
+          "  '02 - Course statistics': 200,",
+          "  '03 - Filter and sort courses': 200,",
+          "  '04 - Get course (lowercase code)': 200,",
+          "  '05 - Get CS-301L': 200,",
+          "  '06 - Unknown course (negative 404)': 404,",
+          "  '07 - Invalid course code (negative 400)': 400,",
+          "  '08 - Invalid query number (negative 400)': 400,",
+          "  '09 - Create course': 201,",
+          "  '10 - Duplicate course (negative 409)': 409,",
+          "  '11 - Invalid credits (negative 400)': 400,",
+          "  '12 - Unknown body property (negative 400)': 400,",
+          "  '13 - Replace course with PUT': 200,",
+          "  '14 - Incomplete PUT (negative 400)': 400,",
+          "  '15 - Update course with PATCH': 200,",
+          "  '16 - Fee policy information': 200,",
+          "  '17 - Standard fee calculation': 200,",
+          "  '18 - Merit fee calculation': 200,",
+          "  '19 - Invalid fee credits (negative 400)': 400,",
+          "  '20 - Unsupported fee policy (negative 400)': 400,",
+          "  '21 - Delete course': 204,",
+          "  '22 - Get deleted course (negative 404)': 404",
+          "};",
+          "pm.test('Returns the expected status for this request', function () {",
+          "  pm.response.to.have.status(expectedStatuses[pm.info.requestName]);",
+          "});"
+          ,"if (pm.info.requestName === '02 - Course statistics') {",
+          "  pm.test('Reports six courses, 17 credits, and not overloaded', function () {",
+          "    pm.expect(pm.response.json()).to.include({ totalCourses: 6, totalCredits: 17, overloaded: false });",
+          "  });",
+          "}",
+          "if (pm.info.requestName === '16 - Fee policy information') {",
+          "  pm.test('Reports the 5000 PKR credit rate', function () {",
+          "    pm.expect(pm.response.json().feeRatePerCredit).to.eql(5000);",
+          "  });",
+          "}",
+          "if (pm.info.requestName === '17 - Standard fee calculation') {",
+          "  pm.test('Calculates standard fee as 60000 PKR', function () {",
+          "    pm.expect(pm.response.json().total).to.eql(60000);",
+          "  });",
+          "}",
+          "if (pm.info.requestName === '18 - Merit fee calculation') {",
+          "  pm.test('Calculates merit fee as 30000 PKR', function () {",
+          "    pm.expect(pm.response.json().total).to.eql(30000);",
+          "  });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - List courses",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses" }
+    },
+    {
+      "name": "02 - Course statistics",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses/stats" }
+    },
+    {
+      "name": "03 - Filter and sort courses",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses?department=Computer%20Science&minCredits=3&sort=credits&order=desc" }
+    },
+    {
+      "name": "04 - Get course (lowercase code)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses/cs101" }
+    },
+    {
+      "name": "05 - Get CS-301L",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses/cs-301l" }
+    },
+    {
+      "name": "06 - Unknown course (negative 404)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses/CS999" }
+    },
+    {
+      "name": "07 - Invalid course code (negative 400)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses/CS-1" }
+    },
+    {
+      "name": "08 - Invalid query number (negative 400)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses?minCredits=abc" }
+    },
+    {
+      "name": "09 - Create course",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"AI401\",\n  \"title\": \"Artificial Intelligence\",\n  \"department\": \"Computer Science\",\n  \"credits\": 3,\n  \"instructor\": \"Dr. Zara\",\n  \"capacity\": 24\n}"
+        },
+        "url": "{{baseUrl}}/api/courses"
+      }
+    },
+    {
+      "name": "10 - Duplicate course (negative 409)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"CS101\",\n  \"title\": \"Duplicate course\",\n  \"department\": \"Computer Science\",\n  \"credits\": 3,\n  \"instructor\": \"Dr. Duplicate\",\n  \"capacity\": 20\n}"
+        },
+        "url": "{{baseUrl}}/api/courses"
+      }
+    },
+    {
+      "name": "11 - Invalid credits (negative 400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"AI402\",\n  \"title\": \"Invalid Credits\",\n  \"department\": \"Computer Science\",\n  \"credits\": 0,\n  \"instructor\": \"Dr. Zara\",\n  \"capacity\": 20\n}"
+        },
+        "url": "{{baseUrl}}/api/courses"
+      }
+    },
+    {
+      "name": "12 - Unknown body property (negative 400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"AI403\",\n  \"title\": \"Unknown Property\",\n  \"department\": \"Computer Science\",\n  \"credits\": 3,\n  \"instructor\": \"Dr. Zara\",\n  \"capacity\": 20,\n  \"isAdmin\": true\n}"
+        },
+        "url": "{{baseUrl}}/api/courses"
+      }
+    },
+    {
+      "name": "13 - Replace course with PUT",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Programming I\",\n  \"department\": \"Computer Science\",\n  \"credits\": 4,\n  \"instructor\": \"Dr. Ali\",\n  \"capacity\": 45\n}"
+        },
+        "url": "{{baseUrl}}/api/courses/CS101"
+      }
+    },
+    {
+      "name": "14 - Incomplete PUT (negative 400)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"title\": \"Incomplete replacement\"\n}" },
+        "url": "{{baseUrl}}/api/courses/CS101"
+      }
+    },
+    {
+      "name": "15 - Update course with PATCH",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"capacity\": 50\n}" },
+        "url": "{{baseUrl}}/api/courses/CS101"
+      }
+    },
+    {
+      "name": "16 - Fee policy information",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/fees/info" }
+    },
+    {
+      "name": "17 - Standard fee calculation",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/fees/calculate?credits=12&cgpa=3.8&policy=standard" }
+    },
+    {
+      "name": "18 - Merit fee calculation",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/fees/calculate?credits=12&cgpa=3.8&policy=merit" }
+    },
+    {
+      "name": "19 - Invalid fee credits (negative 400)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/fees/calculate?credits=0&cgpa=3.5" }
+    },
+    {
+      "name": "20 - Unsupported fee policy (negative 400)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/fees/calculate?credits=3&cgpa=3.5&policy=waived" }
+    },
+    {
+      "name": "21 - Delete course",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/courses/AI401" }
+    },
+    {
+      "name": "22 - Get deleted course (negative 404)",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/courses/AI401" }
+    }
+  ]
+}

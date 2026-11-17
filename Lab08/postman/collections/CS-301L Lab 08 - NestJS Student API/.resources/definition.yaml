@@ -1,0 +1,5 @@
+$kind: collection
+description: "Tests for the Lab 08 NestJS API: dependency injection, DTOs and ValidationPipe. Start the server (npm run start:dev) and run the whole collection with the Collection Runner. It cleans up after itself, so it can be re-run."
+variables:
+  baseUrl: http://localhost:3000
+  newRoll: BSCS-099

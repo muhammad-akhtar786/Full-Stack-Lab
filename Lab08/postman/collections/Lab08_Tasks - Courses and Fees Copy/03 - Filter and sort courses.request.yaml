@@ -1,0 +1,9 @@
+$kind: http-request
+url: "{{baseUrl}}/api/courses?department=Computer%20Science&minCredits=3&sort=credits&order=desc"
+method: GET
+queryParams:
+  department: Computer%20Science
+  minCredits: "3"
+  sort: credits
+  order: desc
+order: 3000
