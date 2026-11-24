@@ -1,0 +1,11 @@
+:root { color-scheme: light; }
+body { background: #f4f7fb; color: #172033; }
+.navbar { box-shadow: 0 2px 12px rgba(20,40,80,.12); }
+.navbar-brand { letter-spacing: .2px; }
+main.container { max-width: 1120px; }
+.page-heading { margin-bottom: 1.5rem; }
+.card { border: 1px solid #e6eaf1; border-radius: 14px; box-shadow: 0 5px 18px rgba(31,50,81,.045); }
+.stat-card .card-body { padding: 1.5rem; }
+.table thead th { color: #4a5870; font-weight: 600; white-space: nowrap; }
+.form-control, .form-select { min-height: 43px; }
+.btn { border-radius: 8px; }
